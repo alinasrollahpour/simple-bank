@@ -11,15 +11,25 @@ public class CLI
         return new KeyValuePair<string, string>(signedUser, signedPassword);
     }
 
-    public static KeyValuePair<string, long> readMove(Bank bank)
+    public static KeyValuePair<string, long> readMove(Bank bank, string signedUser)
     {
         string destination;
+        long amount;
         while (true)
         {
             Console.Write("Enter username of destination account: ");
             destination = Console.ReadLine();
             if (!bank.DoesUsernameExist(destination))
             {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("This username does not exist.");
+                Console.ResetColor();
+                continue;
+            }
+
+            if (destination == signedUser)
+            {
+                Console.WriteLine("This is yourself`s username.");
                 continue;
             }
             break;
@@ -27,27 +37,23 @@ public class CLI
 
         while (true)
         {
-            
+            Console.Write("How much money to move? ");
+            try
+            {
+                amount = long.Parse(Console.ReadLine());
+                if (amount <= 0)
+                {
+                    Console.WriteLine("Amount must be positive!");
+                    continue;
+                }
+                break;
+            }
+            catch (Exception e)
+            {
+                Console.Write("Please enter a valid positive number: ");
+            }
         }
         
+        return new KeyValuePair<string, long>(destination, amount);
     } 
-    static void ProcessCommand()
-    {
-        if (signedUser == null)
-        {
-            
-        }
-        else
-        {
-            Console.WriteLine("You can do transaction(move) , account status(log)");
-            string? input =  Console.ReadLine();
-            while (input != "move" && input != "log")
-            {
-                Console.WriteLine("Sorry, entered command is invalid. available commands: [move, log]");
-                input = Console.ReadLine();
-            }
-            //now we have a valid command
-            
-        }
-    }
 }

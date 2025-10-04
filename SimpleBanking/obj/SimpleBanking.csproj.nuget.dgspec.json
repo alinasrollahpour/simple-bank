@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Dev\\SimpleBanking\\SimpleBanking\\SimpleBanking.csproj": {}
+    "D:\\Dev\\simple-bank\\SimpleBanking\\SimpleBanking.csproj": {}
   },
   "projects": {
-    "D:\\Dev\\SimpleBanking\\SimpleBanking\\SimpleBanking.csproj": {
+    "D:\\Dev\\simple-bank\\SimpleBanking\\SimpleBanking.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Dev\\SimpleBanking\\SimpleBanking\\SimpleBanking.csproj",
+        "projectUniqueName": "D:\\Dev\\simple-bank\\SimpleBanking\\SimpleBanking.csproj",
         "projectName": "SimpleBanking",
-        "projectPath": "D:\\Dev\\SimpleBanking\\SimpleBanking\\SimpleBanking.csproj",
+        "projectPath": "D:\\Dev\\simple-bank\\SimpleBanking\\SimpleBanking.csproj",
         "packagesPath": "C:\\Users\\alina\\.nuget\\packages\\",
-        "outputPath": "D:\\Dev\\SimpleBanking\\SimpleBanking\\obj\\",
+        "outputPath": "D:\\Dev\\simple-bank\\SimpleBanking\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\alina\\AppData\\Roaming\\NuGet\\NuGet.Config"

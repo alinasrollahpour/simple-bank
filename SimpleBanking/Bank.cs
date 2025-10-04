@@ -7,9 +7,9 @@ namespace Banking;
 public class Bank
 {
     private string bankName;
-    private string lastGeneratedCardNumber = "000000";
+    private string lastGeneratedCardNumber = "100000";
     
-    List<Account> bankAccounts = new List<Account>();
+    public List<Account> BankAccounts = new List<Account>();
     
     public Bank(string bankName)
     {
@@ -24,7 +24,7 @@ public class Bank
         
         var newAccount = new Account(
             userName, password,  newCardNumber, balance);
-        bankAccounts.Add(newAccount);
+        BankAccounts.Add(newAccount);
     }
 
     public void Transaction(string password, string from, string to, long amount)
@@ -33,8 +33,8 @@ public class Bank
         
         //throws exception
         //first find that account in the List
-        var fromAccount = bankAccounts.First(p => p.CardNumber == from);
-        var toAccount = bankAccounts.First(p => p.CardNumber == to);
+        var fromAccount = BankAccounts.First(p => p.UserName == from);
+        var toAccount = BankAccounts.First(p => p.UserName == to);
         //check password
         if (!fromAccount.IsPasswordCorrect(password))
         {
@@ -43,17 +43,16 @@ public class Bank
         //transfer the money
         fromAccount.ModifyBalance(-amount);
         toAccount.ModifyBalance(amount);
-        Console.WriteLine("Transaction successful!");
     }
 
     public bool DoesUsernameExist(string userName)
     {
-        return bankAccounts.Any(p => p.UserName == userName);
+        return BankAccounts.Any(p => p.UserName == userName);
     }
     
     public bool IsUserPassValid(string userName, string password)
     {
-        return bankAccounts.Any(p => ( p.CardNumber == userName && p.IsPasswordCorrect(password) ));
+        return BankAccounts.Any(p => ( p.UserName == userName && p.IsPasswordCorrect(password) ));
     }
     
     private string GenerateCardNumber()
